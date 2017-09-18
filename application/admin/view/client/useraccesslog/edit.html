@@ -1,0 +1,66 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-user_name" class="control-label col-xs-12 col-sm-2">{:__('真实姓名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="user_name" class="form-control" name="row[user_name]" type="text" value="{$row['user_name']}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="user_phone" class="control-label col-xs-12 col-sm-2">{:__('用户名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[user_id]', $userdata,$row['user_id'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="agent_name" class="control-label col-xs-12 col-sm-2">{:__('代理名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[agent_id]', $agentdata,$row['agent_id'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="card_name" class="control-label col-xs-12 col-sm-2">{:__('信用卡名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[bank_id]', $carddata,$row['bank_id'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="loan_name" class="control-label col-xs-12 col-sm-2">{:__('贷款业务')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[loan_id]', $loandata,$row['loan_id'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-login_ip" class="control-label col-xs-12 col-sm-2">{:__('登录ip')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="login_ip" class="form-control" name="row[login_ip]" type="text" value="{$row['login_ip']}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="type" class="control-label col-xs-12 col-sm-2">{:__('状态')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="type" name="row[type]">
+                <option value="{$row['type']}">{if condition="$row['type'] ==1 "}登录{elseif condition="$row['type'] ==2 " /}跳转信用卡申请页面{elseif  condition="$row['type'] ==3 " /}跳转贷款申请页面{else /}选择状态{/if}</option>
+                <option value="0">选择状态</option>
+                <option value="1">登录</option>
+                <option value="2">跳转信用卡申请页面</option>
+                <option value="3">跳转贷款申请页面</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-2">{:__('备注')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="product_details" class="form-control summernote" name="row[remark]" cols="50" rows="10">{$row['remark']}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

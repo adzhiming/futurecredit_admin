@@ -1,0 +1,74 @@
+<form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+<h2 style="text-align:center;">添加代理商</h2>
+
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('姓名')}:</label><span style="color:red;">* 必填</span>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" name="row[name]"  id="name" class="form-control" required="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('手机号码')}:</label><span style="color:red;">* 必填</span>
+        <div class="col-xs-12 col-sm-8">
+            <input type="tel" name="row[phone]"  placeholder="输入手机号码"   maxlength="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"   id="phone" class="form-control"  required="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imagetype" class="control-label col-xs-12 col-sm-2">{:__('密码')}:</label><span style="color:red;">* 必填</span>
+        <div class="col-xs-12 col-sm-8">
+            <input type="password" name="row[password]"   id="password" class="form-control"  required="required" />
+        </div>
+    </div>
+
+ 
+    <div class="form-group hide layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button  type="button" id="click"  class="btn btn-success btn-embossed disabled ">{:__('OK')}</button>
+            <button type="reset" id="clear" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+            <input style="display: none;"  type="submit" id="sub"  />
+        </div>
+    </div> 
+</form>
+<script>
+document.getElementById ('clear').onclick = function(){
+		document.getElementById ('name').value='';
+ 		document.getElementById ('phone').value='';
+ 		document.getElementById ('password').value='';
+}
+document.getElementById ('click').onclick = function(){
+	var name =	document.getElementById ('name').value;
+ 	var phone =	document.getElementById ('phone').value;
+ 	var password =	document.getElementById ('password').value;
+    if(name == '')
+    {
+    	alert('姓名不能为空'); 
+    	return ;
+    	}
+    if(phone == '' )
+    { 
+    	alert('手机不能为空'); 
+    	return ;
+    	}
+    
+    if(phone.length < 11 )
+    { 
+    	alert('手机号码不能少于11位'); 
+    	return ;
+    	}
+    
+    if(password == '')
+    { 
+    	alert('密码不能为空'); 
+    	return ;
+    	}
+    if(password.length < 6)
+    { 
+    	alert('密码不能少于6位数'); 
+    	return ;
+    	}
+    
+	document.getElementById ('sub').click ();
+}
+
+</script>

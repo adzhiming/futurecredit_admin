@@ -1,0 +1,647 @@
+<style type="text/css">
+    .sm-st {
+        background:#fff;
+        padding:20px;
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        border-radius:3px;
+        margin-bottom:20px;
+        -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+    }
+    .sm-st-icon {
+        width:60px;
+        height:60px;
+        display:inline-block;
+        line-height:60px;
+        text-align:center;
+        font-size:30px;
+        background:#eee;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+        float:left;
+        margin-right:10px;
+        color:#fff;
+    }
+    .sm-st-info {
+        font-size:12px;
+        padding-top:2px;
+    }
+    .sm-st-info span {
+        display:block;
+       /*  font-size:24px; */
+        font-weight:600;
+    }
+    .orange {
+        background:#fa8564 !important;
+    }
+    .tar {
+        background:#45cf95 !important;
+    }
+    .sm-st .green {
+        background:#86ba41 !important;
+    }
+    .pink {
+        background:#AC75F0 !important;
+    }
+    .yellow-b {
+        background: #fdd752 !important;
+    }
+    .stat-elem {
+
+        background-color: #fff;
+        padding: 18px;
+        border-radius: 40px;
+
+    }
+
+    .stat-info {
+        text-align: center;
+        background-color:#fff;
+        border-radius: 5px;
+        margin-top: -5px;
+        padding: 8px;
+        -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+        font-style: italic;
+    }
+
+    .stat-icon {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .st-red {
+        background-color: #F05050;
+    }
+    .st-green {
+        background-color: #27C24C;
+    }
+    .st-violet {
+        background-color: #7266ba;
+    }
+    .st-blue {
+        background-color: #23b7e5;
+    }
+
+    .stats .stat-icon {
+        color: #28bb9c;
+        display: inline-block;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        width: 50px;
+        float:left;
+    }
+
+    .stat {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        margin-right: 10px; }
+    .stat .value {
+        font-size: 20px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500; }
+    .stat .name {
+        overflow: hidden;
+        text-overflow: ellipsis; }
+    .stat.lg .value {
+        font-size: 26px;
+        line-height: 28px; }
+    .stat.lg .name {
+        font-size: 16px; }
+    .stat-col .progress {height:2px;}
+    .stat-col .progress-bar {line-height:2px;height:2px;}
+
+    .item {
+        padding:30px 0;
+    }
+    
+    .click-text{
+	background-color: #18bc9c;
+    width: 70px;
+    color: #ffffff;
+    font-size: 16.0px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-align: center;
+    }
+    .searchZ{
+    border-radius: 3px;
+    padding: 5px;
+    border-bottom: none;
+    	list-style: none;
+    }
+    ul>li{
+	    float: left;
+    	margin-left:20px;
+    }
+    .tableList{
+	    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    }
+.marign50 {
+    border: 1px solid #ddd;
+    margin-top: 50px;
+}
+.tableList tr td {
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.left-div{
+    width: 40%;
+    float: left;
+    background: #F1F1F1;
+    border-radius: 4px;
+	border: 1px solid #ddd;
+}
+.title-size{
+	font-size:16px;
+}
+a:hover{
+color:#ff0000;
+}
+a:link,a:visited{color:#ffffff;text-decoration:none;}
+</style>
+<div class="panel panel-default panel-intro">
+  <!--   <div class="panel-heading">
+        <div class="panel-lead"><em>控制台（Dashboard）</em>用于展示当前系统中的统计数据、统计报表及重要实时数据</div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#one" data-toggle="tab">控制台</a></li>
+            <li><a href="#two" data-toggle="tab">微信统计</a></li>
+        </ul>
+    </div> -->
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+
+  
+           <div><h3><b>数据总览</b></h3  style="float:left;"></div> 
+              <table class="tableList marign50">
+                <tbody><tr style="font-weight: 600;background: #fbfbfb">
+                    <td>代理商总数</td>
+                    <td>用户总数</td>
+                    <td>访问次数</td>
+                    <td>待审核提现订单数</td>
+                    <td>已提现订单数</td>
+                   
+                </tr>
+                 
+                   <tr style="font-size:14px; font-weight:bold;">        
+                    <td>{$agenttotal}</td>
+                    <td>{$userTotal}</td>
+                    <td>{$userAccess}</td>
+                    <td>{$applyOrderSum}（共{$applyOrderTotal}元）</td>
+                    <td>{$successOrderSum}（共{$successOrderTotal}元）</td>
+                </tr>
+                  
+            </tbody>
+            </table>
+             <!-- 信用卡 ，贷款总量 -->   
+              <div style="width:100%;margin-top:20px;">
+                	<div style="width:40%;float:left;height: 170px;text-align:center;dispaly:block;" class="left-div">
+             			 <b class="title-size" style="text-align:center" >信用卡产品总量(张)/已开卡总量(张)</b></br>
+              				<i style="width:70%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             					 <b>{$bankCardTotal}/{$dredgeCard}</b>              
+             		 </div>
+              
+             		 <div style="width:40%;float:right;height: 170px;text-align:center;dispaly:block;" class="left-div">
+             			 <b class="title-size" style="text-align:center" >贷款产品总量(种)/已贷款总金额(元)</b></br>
+              				<i style="width:70%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             					 <b>{$loan}/{$totalLoanAmount}</b>              
+             		 </div>
+             
+              </div>
+              <div style="width:100%;float:left;"><h3><b>日统计数据</b></h3 ></div> 
+              <div id="toolbar" class="toolbar" style="float: left;width: 100%; margin-top: 20px; margin-left: -20px;">
+
+				<ul class="searchZ ">
+                    
+                    <li >
+                      <a href="javascript:;" class="click-text " id="week" data-date="week" onclick="ajax(event)"  > 近7天</a>
+                    </li>
+                    <li >
+                      <a href="javascript:;" class="click-text " id="month" style="width:80px;" data-date="month" onclick="ajax(event)" >月份</a>
+                    </li>
+                    <li >
+                      <a href="javascript:;" class="click-text " id="year" style="width:80px;" data-date="years" onclick="ajax(event)" >年份</a>
+                    </li>
+                    <!--  <li>
+            		         <span>日期：</span>
+                    </li>
+                	 <li>
+                                <input class="time1 form-control datetimepicker" style="    margin-top: -7px;" name="start" id="datetimePicker1" value="" type="text">
+                     </li>
+                     <li class="ulZi"><span>至</span></li>
+                     <li>
+                         <input class="time1 form-control" style="    margin-top: -7px;"  name="end" id="datetimePicker2" value="" type="text">
+                     </li>
+                     <li>
+                     <a href="javascript:;" class="click-text" style="width:80px;">查询</a>
+                     </li> -->
+                    
+                </ul>
+           </div>
+              <!-- 变化趋势 -->
+				   <div style="width:100%;">
+                	<div style="width:40%;margin-top:20px;float:left;height: 490px;text-align:center;dispaly:block;" class="left-div">
+             			 <b class="title-size" style="text-align:center" >图  信用卡开卡变化趋势</b></br>
+              				<i style="width:70%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             					 <div id="dayQuan" style="height:440px"></div>           
+             		 </div>
+              
+             		 <div style="width:40%;margin-top:20px;float:right;height: 490px;text-align:center;dispaly:block;" class="left-div">
+             			 <b class="title-size" style="text-align:center" >图  贷款变化趋势</b></br>
+              				<i style="width:70%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             					   <div id="loan" style="height:440px"></div>              
+             		 </div>
+             
+              </div>
+				
+
+				<div style="float:left;width:100%;margin-top: 20px;" > 
+				<div class="form-inline form-commonsearch" >
+				<fieldset>
+				<div class="form-group" style="margin: 5px; position: relative;">
+				<label for="createtime" class="control-label" style="padding:0 10px">日期：</label>
+				<input type="hidden" class="form-control operate" name="field-createtime" data-name="createtime" value="BETWEEN" readonly="">
+				<input type="datetime" class="form-control datetimepicker datetimePicker1 start" name="createtime" value="" placeholder="开始时间" id="createtime" data-date-format="YYYY-MM-DD">&nbsp;-&nbsp;
+				<input type="datetime" class="form-control datetimepicker datetimePicker2 end" name="createtime" value="" placeholder="结束时间" id="createtime" data-date-format="YYYY-MM-DD"></div><div class="form-group" style="margin:5px">
+				<div class="col-sm-12 text-center">
+				<a  class="btn btn-success">提交</a>
+				</div>
+				</div>
+				</fieldset>
+				</div>
+				</div>
+				  
+				   <div style="width:100%;">				        
+                	<div style="width:40%;margin-top:20px;float:left;height: 170px;text-align:center;dispaly:block;" >                
+             		  <b class="title-size" style=" float: left;margin-left: 50px;">日期</b><b class="title-size" >信用卡名称</b><b class="title-size" style=" float: right;margin-right: 50px;">开卡总量(张)</b></br>             		                				   
+              				<i style="width:100%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             				  {volist name="creditCard" id="vo"  }
+             					 <div class="insert"><b style=" float: left;margin-left: 50px;">{$vo.confirm_time}</b><b   style="  margin-left: -100px;">{$vo.bank_name}</b> <b style=" float: right;margin-right: 50px;">{$vo.total}</b></div></br>   
+             					 	 <i style="width:100%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i>   
+             				 {/volist}		   
+             			 </div>
+             				    
+             		 <div style="width:40%;height:100%;margin-top:20px;float:right;height: 170px;text-align:center;dispaly:block;">
+             			<b  class="title-size" style=" float: left;margin-left: 50px;">日期</b><b class="title-size" >贷款名称</b><b class="title-size" style=" float: right;margin-right: 50px;">贷款总金额(元)</b></br>             				
+              				<i style="width:100%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i></br>
+             				 <div class="loan_insert">    
+             				 {foreach name="loandata" item="vo"  }
+             					<b style=" float: left;margin-left: 50px;">{$vo.confirm_time}</b><b   style="  margin-left: -100px;">{$vo.name}</b> <b style=" float: right;margin-right: 50px;">{$vo.totalmoney}</b></br>   
+             					{/foreach}
+             				</div>
+             				<i style="width:100%;border-bottom: 1px solid #ddd;margin: auto;margin-top: 5px; display: block;"></i>   
+             			 </div>             			 	 
+             		 </div>
+              
+   
+			
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts-3d.js"></script>
+<script>
+
+function ajax(event){
+	var obj = event.target;
+	var date =  document.getElementById(obj.id);
+
+	  $.ajax({
+          url: 'dashboard/index',
+          type: 'post',
+          dataType: 'json',
+          data:'date='+date.dataset.date,
+          success: function (ret) {
+        	  
+        	  var credit_card = ret.data.cradData;
+        	  var loan_money = ret.data.loanData;
+        	  
+        	  if(ret.code == 0)
+        	  {        		 
+        		  if(credit_card == '' || credit_card == null)
+          		 {
+          			var html = document.getElementById('dayQuan');
+          			html.innerHTML = '<span>'+ '暂时还没数据喔~'+ '</span>';
+          			return;
+          		 }
+        		  ajaxCreditCard(credit_card);
+             	  
+             	  if(loan_money == '' || loan_money == null)
+           		 {
+           			var html = document.getElementById('loan');
+           			html.innerHTML = '<span>'+ '暂时还没数据喔~'+ '</span>';
+           			return;
+           		 }
+        		  ajaxLoanMoney(loan_money);
+        	  }else
+        	  {
+            
+            	  
+        	  }
+             
+          }
+      });
+	//console.log()
+}
+
+
+function ajaxLoanMoney(obj){
+	chart = new Highcharts.Chart({   
+		plotOptions: {     
+			series: {          
+				cursor: 'pointer',          
+				events: {               
+					click: function(e) {               
+						alert(e.point.category);         
+						}        
+			}     
+	}    
+		}, 
+	chart: {
+	    renderTo: 'loan',          //放置图表的容器
+	    defaultSeriesType: 'line',
+	   // zoomType: 'xy'   //******  这句是实现局部放大的关键处  ******
+	},
+	title: {    //设置标题
+	    text: (function () {
+	        var strHTML = "<span style=\"font-size:18px; font-weight: bolder;\">" + '贷款总金额/元' + "</span>";
+	        return strHTML;
+	    })(),
+	    style: {
+	        color: 'black'
+	    }
+	},
+	xAxis: {
+		categories: obj.dateList
+	},
+	yAxis: {
+		title: {
+			text: '总金额：元'
+		}
+	},
+	tooltip: {
+		crosshairs: true,
+		shared: true
+	},
+	plotOptions: {
+		spline: {
+			marker: {
+				radius: 4,
+				lineColor: '#666666',
+				lineWidth: 1
+			}
+		}
+	},
+	series: [{
+		name: '元',
+		marker: {
+			symbol: 'square'
+		},
+		data: obj.dataList,
+	}],
+
+	});
+}
+
+function ajaxCreditCard(obj){
+	   chart = new Highcharts.Chart({   
+   		plotOptions: {     
+   			series: {          
+   				cursor: 'pointer',          
+   				events: {               
+   					click: function(e) {               
+   						alert(e.point.category);         
+   						}        
+   			}     
+   	}    
+   		}, 
+   	chart: {
+   	    renderTo: 'dayQuan',          //放置图表的容器
+   	    defaultSeriesType: 'line',
+   	   // zoomType: 'xy'   //******  这句是实现局部放大的关键处  ******
+   	},
+   	title: {    //设置标题
+   	    text: (function () {
+   	        var strHTML = "<span style=\"font-size:18px; font-weight: bolder;\">" + '开卡总数量/张' + "</span>";
+   	        return strHTML;
+   	    })(),
+   	    style: {
+   	        color: 'black'
+   	    }
+   	},
+   	xAxis: {
+   		categories: obj.dateList
+   	},
+   	yAxis: {
+   		title: {
+   			text: '卡数：张'
+   		}
+   	},
+   	tooltip: {
+   		crosshairs: true,
+   		shared: true
+   	},
+   	plotOptions: {
+   		spline: {
+   			marker: {
+   				radius: 4,
+   				lineColor: '#666666',
+   				lineWidth: 1
+   			}
+   		}
+   	},
+   	series: [{
+   		name: '张',
+   		marker: {
+   			symbol: 'square'
+   		},
+   		data: obj.dataList,
+   	}],
+
+   	});
+}
+
+
+//var obj = document.getElementsByClassName('date').click() = function (alert(1) );
+
+/* var arr =[];
+for(var i=1;i<5;i++){
+	
+	arr.push ( i);
+}
+console.log(arr) */
+var data = {$cradData};
+console.log(data)
+chart = new Highcharts.Chart({   
+	plotOptions: {     
+		series: {          
+			cursor: 'pointer',          
+			events: {               
+				click: function(e) {               
+					alert(e.point.category);         
+					}        
+		}     
+}    
+	}, 
+chart: {
+    renderTo: 'dayQuan',          //放置图表的容器
+    defaultSeriesType: 'line',
+   // zoomType: 'xy'   //******  这句是实现局部放大的关键处  ******
+},
+title: {    //设置标题
+    text: (function () {
+        var strHTML = "<span style=\"font-size:18px; font-weight: bolder;\">" + '开卡总数量/张' + "</span>";
+        return strHTML;
+    })(),
+    style: {
+        color: 'black'
+    }
+},
+xAxis: {
+	categories: data.dateList
+},
+yAxis: {
+	title: {
+		text: '卡数：张'
+	}
+},
+tooltip: {
+	crosshairs: true,
+	shared: true
+},
+plotOptions: {
+	spline: {
+		marker: {
+			radius: 4,
+			lineColor: '#666666',
+			lineWidth: 1
+		}
+	}
+},
+series: [{
+	name: '张',
+	marker: {
+		symbol: 'square'
+	},
+	data: data.dataList,
+}],
+
+});
+
+
+var loanData = {$loanData};
+console.log(loanData)
+chart = new Highcharts.Chart({   
+	plotOptions: {     
+		series: {          
+			cursor: 'pointer',          
+			events: {               
+				click: function(e) {               
+					alert(e.point.category);         
+					}        
+		}     
+}    
+	}, 
+chart: {
+    renderTo: 'loan',          //放置图表的容器
+    defaultSeriesType: 'line',
+   // zoomType: 'xy'   //******  这句是实现局部放大的关键处  ******
+},
+title: {    //设置标题
+    text: (function () {
+        var strHTML = "<span style=\"font-size:18px; font-weight: bolder;\">" + '贷款总金额/元' + "</span>";
+        return strHTML;
+    })(),
+    style: {
+        color: 'black'
+    }
+},
+xAxis: {
+	categories: loanData.dateList
+},
+yAxis: {
+	title: {
+		text: '总金额：元'
+	}
+},
+tooltip: {
+	crosshairs: true,
+	shared: true
+},
+plotOptions: {
+	spline: {
+		marker: {
+			radius: 4,
+			lineColor: '#666666',
+			lineWidth: 1
+		}
+	}
+},
+series: [{
+	name: '元',
+	marker: {
+		symbol: 'square'
+	},
+	data: loanData.dataList,
+}],
+
+});
+
+
+/* 
+window.onload=function(){
+	var obj = document.getElementById('#dayQuan');
+	
+	obj.highcharts({
+		chart: {
+			type: 'spline'
+		},
+		title: {
+			text: '卡券核销张数据趋势'
+		},
+		xAxis: {
+			categories: 123123
+		},
+		yAxis: {
+			title: {
+				text: '卡数：张'
+			}
+		},
+		tooltip: {
+			crosshairs: true,
+			shared: true
+		},
+		plotOptions: {
+			spline: {
+				marker: {
+					radius: 4,
+					lineColor: '#666666',
+					lineWidth: 1
+				}
+			}
+		},
+		series: [{
+			name: '核销',
+			marker: {
+				symbol: 'square'
+			},
+			data: 123213
+		}]
+	});
+}
+ */
+
+
+</script>

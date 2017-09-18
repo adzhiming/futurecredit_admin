@@ -1,0 +1,154 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    <input id="loan_id" class="form-control" name="row[loan_id]" type="hidden" value="{$row['loan_id']}" data-rule="required"   readonly="readonly">
+    <div class="form-group">
+        <label for="loan_name" class="control-label col-xs-12 col-sm-2">{:__('贷款公司')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="loan_name" class="form-control" name="row[loan_name]" type="text" value="{$row['loan_name']}" data-rule="required"   readonly="readonly">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('业务名称')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="name" class="form-control" name="row[name]" type="text" value="{$row.name}" data-rule="required" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="loan_flow" class="control-label col-xs-12 col-sm-2">{:__('贷款流程')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('group[]', $flowdata,$row['loan_flow'], ['class'=>'form-control selectpicker', 'multiple'=>'', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="product_type" class="control-label col-xs-12 col-sm-2">{:__('产品类型')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="product_type" name="row[product_type]">
+                <option value="{$row['product_type']}">{if condition="$row['product_type'] ==1 "}极速到账{elseif condition="$row['product_type'] ==2 " /}低息贷款{else /}选择状态{/if}</option>
+                <option value="0">选择状态</option>
+                <option value="1">极速到账</option>
+                <option value="2">大额贷款</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="product_style" class="control-label col-xs-12 col-sm-2">{:__('跳转类型')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="product_style" name="row[product_style]">
+                <option value="{$row['product_style']}">{if condition="$row['product_style'] ==1 "}直接跳转{elseif condition="$row['product_style'] ==2 " /}接口跳转{else /}选择状态{/if}</option>
+                <option value="0">选择状态</option>
+                <option value="1">直接跳转</option>
+                <option value="2">接口跳转</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-unit_rate" class="control-label col-xs-12 col-sm-2">{:__('期限单位')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input   name="row[unit_rate]"  type="radio" value="1" {$row.unit_rate == 1 ? 'checked="checked"' : ''}/> 月
+            <input   name="row[unit_rate]"  type="radio" value="2" {$row.unit_rate == 2 ? 'checked="checked"' : ''}/> 周
+            <input   name="row[unit_rate]"  type="radio" value="3" {$row.unit_rate == 3 ? 'checked="checked"' : ''}/> 日
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-loan_term" class="control-label col-xs-12 col-sm-2">{:__('贷款期限')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="loan_term" class="form-control" name="row[loan_term]" type="text" value="{$row.loan_term}">
+            <p><span style="color:red;">备注：期限之间以'-'号区分开，例：1到12个月，1-12个月</span></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-repayment_cycle_range" class="control-label col-xs-12 col-sm-2">{:__('周期范围')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="repayment_cycle_range" class="form-control" name="row[repayment_cycle_range]" type="text" value="{$row['repayment_cycle_range']}" data-rule="required" ><p><span style="color:red;">备注:如期限单位为月，输入1-2-3，表示计算月为1个月，2个月，3个月，周、日的同理！</span></p>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-rate" class="control-label col-xs-12 col-sm-2">{:__('利率单位')}:(%)</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="interest_rate" class="form-control" name="row[interest_rate]" type="text" value="{php}echo ($row['interest_rate']*100)/100;{/php}" data-rule="required" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-interest_free_days" class="control-label col-xs-12 col-sm-2">{:__('免息天数')}:(天)</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="interest_free_days" class="form-control" name="row[interest_free_days]" type="text" value="{$row['interest_free_days']}"  >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-loan_range" class="control-label col-xs-12 col-sm-2">{:__('贷款金额范围')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="loan_range" class="form-control" name="row[loan_range]" type="text" value="{$row.loan_range}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-apply_number" class="control-label col-xs-12 col-sm-2">{:__('申请人数')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="apply_number" class="form-control" name="row[apply_number]" type="text" value="{$row.apply_number}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-play_type" class="control-label col-xs-12 col-sm-2">{:__('还款方式')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="play_type" class="form-control" name="row[play_type]" type="text" value="{$row.play_type}">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <label for="c-product_url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="product_url" class="form-control" name="row[product_url]" type="text" value="{$row.product_url}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-product_logo" class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-product_logo" class="form-control" size="50" name="row[product_logo]" type="text" value="{$row.product_logo}">
+                <span><button type="button" id="plupload-product_logo" class="btn btn-danger plupload" data-input-id="c-product_logo" data-mimetype="image/*" data-multiple="false" data-preview-id="p-product_logo"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-product_logo" class="btn btn-primary fachoose" data-input-id="c-product_logo" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <ul class="row list-inline plupload-preview" id="p-bank_logo"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-product_comment" class="control-label col-xs-12 col-sm-2">{:__('申请条件')}:(多个条件/n号隔开)</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="product_comment" class="form-control summernote" name="row[product_comment]" cols="50" rows="10">{$row['product_comment']}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-product_datum" class="control-label col-xs-12 col-sm-2">{:__('所需材料')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="product_datum" class="form-control summernote" name="row[product_datum]" cols="50" rows="10">{$row['product_datum']}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-product_details" class="control-label col-xs-12 col-sm-2">{:__('简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="product_details" class="form-control summernote" name="row[product_details]" cols="50" rows="10">{$row['product_details']}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

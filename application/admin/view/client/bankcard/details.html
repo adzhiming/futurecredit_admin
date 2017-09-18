@@ -1,0 +1,60 @@
+<form id="details-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+
+    <!--<div class="form-group">-->
+        <!--<label for="c-card_url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<p  class="form-control">{$row.card_url}</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label for="c-product_url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" value="{$row.card_url}" readonly="readonly">
+        </div>
+
+        <span class="input-group-btn input-group-sm">
+            <a href="{$row.card_url}" target="_blank" class="btn btn-default btn-sm">
+            <i class="fa fa-link"></i>
+            </a>
+       </span>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label for="c-displayorder" class="control-label col-xs-12 col-sm-2">{:__('排序')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <p  class="form-control">{$row.displayorder}</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-apply_number" class="control-label col-xs-12 col-sm-2">{:__('申请人数')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <p  class="form-control">{$row.apply_number}</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-follow_number" class="control-label col-xs-12 col-sm-2">{:__('关注人数')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <p  class="form-control">{$row.follow_number}</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-card_details" class="control-label col-xs-12 col-sm-2">{:__('简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea  style="resize:none"  id="card_details" class="form-control" name="row[card_details]" cols="30" rows="5"  disabled>{$row['card_details']}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <!--<button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>-->
+            <!--<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>-->
+        </div>
+    </div>
+</form>

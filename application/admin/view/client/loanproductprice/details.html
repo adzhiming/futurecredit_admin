@@ -1,0 +1,61 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+
+    <input id="id" class="form-control" name="row[id]" type="hidden" value="{$row.id}" data-rule="required" >
+    <input id="loan_product_id" class="form-control" name="row[loan_product_id]" type="hidden" value="{$row.loan_product_id}" data-rule="required" >
+    <div class="form-group">
+        <label for="loan_name" class="control-label col-xs-12 col-sm-2">{:__('贷款产品')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="loan_name" class="form-control" name="row[loan_name]" type="text" value="{$row.loan_name}" data-rule="required" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-rule_type" class="control-label col-xs-12 col-sm-2">{:__('规则类型')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input   name="row[rule_type]"   type="radio" value="1" {$row.rule_type == 1 ? 'checked="checked"' : ''} disabled/> CPA(注册数)
+            <input   name="row[rule_type]"  type="radio" value="2"{$row.rule_type == 2 ? 'checked="checked"' : ''} disabled/> CPS(销售额)
+            <!--<input   name="row[price_type]"  type="radio" value="3" /> 按注册数-->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-level_price" class="control-label col-xs-12 col-sm-2">{:__('特级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level_price" class="form-control" name="row[level_price]" type="text" value="{$row.level_price}" data-rule="required" disabled >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level1_price" class="control-label col-xs-12 col-sm-2">{:__('一级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level1_price" class="form-control" name="row[level1_price]" type="text" value="{$row.level1_price}" data-rule="required" disabled>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level2_price" class="control-label col-xs-12 col-sm-2">{:__('二级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level2_price" class="form-control" name="row[level2_price]" type="text" value="{$row.level2_price}" data-rule="required" disabled>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level3_price" class="control-label col-xs-12 col-sm-2">{:__('三级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level3_price" class="form-control" name="row[level3_price]" type="text" value="{$row.level3_price}" data-rule="required" disabled>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-2">{:__('规则描述')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="remark" class="form-control summernote" name="row[remark]" cols="50" rows="10" disabled>{$row['remark']}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <!--<button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>-->
+            <!--<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>-->
+        </div>
+    </div>
+</form>

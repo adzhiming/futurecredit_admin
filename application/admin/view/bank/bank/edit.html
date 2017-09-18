@@ -1,0 +1,45 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label for="c-bank_name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_name" class="form-control" name="row[bank_name]" type="text" value="{$row.bank_name}" data-rule="required" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-bank_phone" class="control-label col-xs-12 col-sm-2">{:__('电话')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_phone" class="form-control" name="row[bank_phone]" type="text" value="{$row.bank_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_url" class="form-control" name="row[bank_url]" type="text" value="{$row.bank_url}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-bank_logo" class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-bank_logo" class="form-control" size="50" name="row[bank_logo]" type="text" value="{$row.bank_logo}">
+                <span><button type="button" id="plupload-bank_logo" class="btn btn-danger plupload" data-input-id="c-bank_logo" data-mimetype="image/*" data-multiple="false" data-preview-id="p-bank_logo"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-bank_logo" class="btn btn-primary fachoose" data-input-id="c-bank_logo" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <ul class="row list-inline plupload-preview" id="p-bank_logo"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-bank_detail" class="control-label col-xs-12 col-sm-2">{:__('简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="bank_detail" class="form-control summernote" name="row[bank_detail]" cols="50" rows="10">{$row.bank_detail}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

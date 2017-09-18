@@ -1,0 +1,128 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-displayorder" class="control-label col-xs-12 col-sm-2">{:__('排序')}:(数字越小越靠前)</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="displayorder" class="form-control" name="row[displayorder]" type="text" value="" data-rule="required" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="bank_name" class="control-label col-xs-12 col-sm-2">{:__('银行名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[bank_id]', $bankdata, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-is_recommend" class="control-label col-xs-12 col-sm-2">{:__('是否推荐')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input   name="row[is_recommend]"   type="radio" value="0" /> 不推荐
+            <input   name="row[is_recommend]"  type="radio" value="1"  /> 推荐
+            <!--<input   name="row[price_type]"  type="radio" value="3" /> 按注册数-->
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-is_hot" class="control-label col-xs-12 col-sm-2">{:__('是否热门')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input   name="row[is_hot]"   type="radio" value="0" /> 不推荐
+            <input   name="row[is_hot]"  type="radio" value="1"  /> 推荐
+            <!--<input   name="row[price_type]"  type="radio" value="3" /> 按注册数-->
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="name" class="control-label col-xs-12 col-sm-2">{:__('类型名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[card_type_id]', $typedata, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-card_name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="card_name" class="form-control" name="row[card_name]" type="text" value="" data-rule="required" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-apply_number" class="control-label col-xs-12 col-sm-2">{:__('申请人数')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="apply_number" class="form-control" name="row[apply_number]" type="text" value="" data-rule="required" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-follow_number" class="control-label col-xs-12 col-sm-2">{:__('关注人数')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="follow_number" class="form-control" name="row[follow_number]" type="text" value="" data-rule="required" >
+        </div>
+    </div>
+
+
+
+    <!--<div class="form-group">-->
+        <!--<label for="c-price_type" class="control-label col-xs-12 col-sm-2">{:__('返佣类型')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input   name="row[price_type]"  type="radio" value="1" checked="checked" /> 按金额-->
+            <!--<input   name="row[price_type]"  type="radio" value="2"  /> 按比例-->
+            <!--<input   name="row[price_type]"  type="radio" value="3"  /> 按注册数-->
+        <!--</div>-->
+    <!--</div>-->
+   <!--（特别提示：按返佣金额，直接输入金额；按比例输入，比如按20%，输入20即可。输入数字最多为小数点后2位）-->
+    <!--<div class="form-group">-->
+        <!--<label for="c-level_price" class="control-label col-xs-12 col-sm-2">{:__('特级佣金')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="level_price" class="form-control" name="row[level_price]" type="text" value="" data-rule="required" >-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label for="c-level1_price" class="control-label col-xs-12 col-sm-2">{:__('一级佣金')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="level1_price" class="form-control" name="row[level1_price]" type="text" value="" data-rule="required" >-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label for="c-level2_price" class="control-label col-xs-12 col-sm-2">{:__('二级佣金')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="level2_price" class="form-control" name="row[level2_price]" type="text" value="" data-rule="required" >-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label for="c-level3_price" class="control-label col-xs-12 col-sm-2">{:__('三级佣金')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="level3_price" class="form-control" name="row[level3_price]" type="text" value="" data-rule="required" >-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label for="c-card_url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="card_url" class="form-control" name="row[card_url]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-card_logo" class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-card_logo" class="form-control" size="50" name="row[card_logo]" type="text" value="">
+                <span><button type="button" id="plupload-card_logo" class="btn btn-danger plupload" data-input-id="c-card_logo" data-mimetype="image/*" data-multiple="false" data-preview-id="p-card_logo"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-card_logo" class="btn btn-primary fachoose" data-input-id="c-card_logo" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <ul class="row list-inline plupload-preview" id="p-card_logo"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-card_details" class="control-label col-xs-12 col-sm-2">{:__('简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="card_details" class="form-control summernote" name="row[card_details]" cols="50" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

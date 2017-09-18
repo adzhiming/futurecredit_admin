@@ -1,0 +1,124 @@
+<form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label for="c-bank_name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_name" class="form-control" name="row[bank_name]" type="text" value="{$row.bank_name}" data-rule="required" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-bank_phone" class="control-label col-xs-12 col-sm-2">{:__('电话')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_phone" class="form-control" name="row[bank_phone]" type="text" value="{$row.bank_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-card_speed" class="control-label col-xs-12 col-sm-2">{:__('办卡速度')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="card_speed" class="form-control" name="row[card_speed]" type="text" value="{$row['card_speed']}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-average_amount" class="control-label col-xs-12 col-sm-2">{:__('平均额度')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="average_amount" class="form-control" name="row[average_amount]" type="text" value="{$row['average_amount']}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-passing_rate" class="control-label col-xs-12 col-sm-2">{:__('办卡通过率')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="passing_rate" class="form-control" name="row[passing_rate]" type="text" value="{$row['passing_rate']}">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-price_type" class="control-label col-xs-12 col-sm-2">{:__('返佣类型')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input   name="row[price_type]"  type="radio" value="3"  {$row.price_type ==3 ? 'checked="checked"' :'checked="checked"'} /> CPA(注册数)
+            <!--<input   name="row[price_type]"  type="radio" value="2"  {$row.price_type == 2 ? 'checked="checked"' : ''} /> 按比例-->
+            <!--<input   name="row[price_type]"  type="radio" value="3"  {$row.price_type == 3 ? 'checked="checked"' : ''}/> 按注册数-->
+        </div>
+    </div>
+    <!--（特别提示：按返佣金额，直接输入金额；按比例输入，比如按20%，输入20即可。输入数字最多为小数点后2位）-->
+
+    <!--<div class="form-group">-->
+        <!--<label for="c-rule_description" class="control-label col-xs-12 col-sm-2">{:__('结算规则描述')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="rule_description" class="form-control" name="row[rule_description]" type="text" value="{$row['rule_description']}">-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label for="c-rule_description" class="control-label col-xs-12 col-sm-2">{:__('结算规则描述')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea  style="resize:none"  id="rule_description" class="form-control" name="row[rule_description]" cols="30" rows="5"  >{$row['rule_description']}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-level_price" class="control-label col-xs-12 col-sm-2">{:__('特级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level_price" class="form-control" name="row[level_price]" type="number" value="{$row['level_price']}" data-rule="required" placeholder="元/张" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level1_price" class="control-label col-xs-12 col-sm-2">{:__('一级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level1_price" class="form-control" name="row[level1_price]" type="number" value="{$row['level1_price']}" data-rule="required"  placeholder="元/张">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level2_price" class="control-label col-xs-12 col-sm-2">{:__('二级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level2_price" class="form-control" name="row[level2_price]" type="number" value="{$row['level2_price']}" data-rule="required"  placeholder="元/张">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-level3_price" class="control-label col-xs-12 col-sm-2">{:__('三级佣金')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="level3_price" class="form-control" name="row[level3_price]" type="number" value="{$row['level3_price']}" data-rule="required" placeholder="元/张" >
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-url" class="control-label col-xs-12 col-sm-2">{:__('链接')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="bank_url" class="form-control" name="row[bank_url]" type="text" value="{$row.bank_url}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-bank_logo" class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-bank_logo" class="form-control" size="50" name="row[bank_logo]" type="text" value="{$row.bank_logo}">
+                <span><button type="button" id="plupload-bank_logo" class="btn btn-danger plupload" data-input-id="c-bank_logo" data-mimetype="image/*" data-multiple="false" data-preview-id="p-bank_logo"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-bank_logo" class="btn btn-primary fachoose" data-input-id="c-bank_logo" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <ul class="row list-inline plupload-preview" id="p-bank_logo"></ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div class="form-group">-->
+        <!--<label for="c-rule_description" class="control-label col-xs-12 col-sm-2">{:__('结算规则')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<textarea id="rule_description" class="form-control summernote" name="row[rule_description]" cols="50" rows="10">{$row['rule_description']}</textarea>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label for="c-bank_detail" class="control-label col-xs-12 col-sm-2">{:__('简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="bank_detail" class="form-control summernote" name="row[bank_detail]" cols="50" rows="10">{$row.bank_detail}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
